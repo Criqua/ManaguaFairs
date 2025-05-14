@@ -2,12 +2,12 @@
 
 @section('content')
 <section id="heroSection"
-    class="min-h-screen overflow-hidden flex flex-col items-center justify-center text-center px-4 py-8 md:px-6 md:py-0 bg-gray-100 dark:bg-gray-900 text-white">
+    class="min-h-screen overflow-hidden flex flex-col items-center justify-center text-center px-4 py-8 md:px-6 md:py-0 bg-[#111827] text-white">
 
     <!-- Logo (ícono) representativo del sitio web -->
     <div class="mb-2 sm:mb-4">
         <div class="inline-flex items-center justify-center bg-gradient-to-tr from-slate-800 to-slate-700 p-4 rounded-full">
-            <i class="fa-solid fa-store text-4xl text-gray-200"></i>
+            <i class="fa-solid fa-store text-3xl text-gray-200"></i>
         </div>
     </div>
 
@@ -21,12 +21,12 @@
 
     <!-- Botones de gestión de ferias y emprendedores -->
     <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#" class="w-48 px-6 py-3 bg-[#115e59] rounded-lg hover:bg-opacity-70 text-white font-medium transition duration-200">
-            Ver Ferias
+        <a href="{{ route('fairs.index') }}" class="w-48 px-6 py-3 bg-[#115e59] rounded-lg hover:bg-opacity-70 text-white font-medium transition duration-200">
+            {{ __('Ver Ferias') }}
         </a>
 
-        <a href="#" class="w-48 px-6 py-3 bg-[#3730a3] rounded-lg hover:bg-opacity-70 text-white font-medium transition duration-200">
-            Ver Emprendedores
+        <a href="{{ route('entrepreneurs.index') }}" class="w-48 px-6 py-3 bg-[#3730a3] rounded-lg hover:bg-opacity-70 text-white font-medium transition duration-200">
+            {{ __('Ver Emprendedores') }}
         </a>
     </div>
 
