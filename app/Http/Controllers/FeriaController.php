@@ -2,64 +2,78 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Emprendedor;
+use App\Models\Feria;
 use Illuminate\Http\Request;
 
-class FeriaController extends Controller
+class EmprendedorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $query = Emprendedor::query();
+
+        if ($request->has('feria_id')) {
+            $query->whereHas('ferias', function ($q) use ($request) {
+                $q->where('feria_id', $request->feria_id);
+            });
+        }
+
+        $emprendedores = $query->with('ferias')->get();
+        return view('emprendedores.index', compact('emprendedores'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $ferias = Feria::all();
+        return view('emprendedores.create', compact('ferias'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nombre' => 'required',
+            'rubro' => 'required',
+            'descripcion' => 'nullable',
+            'contacto' => 'required',
+            'ferias' => 'array',
+        ]);
+
+        $emprendedor = Emprendedor::create($data);
+        $emprendedor->ferias()->sync($data['ferias']);
+
+        return redirect()->route('emprendedores.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Emprendedor $emprendedor)
     {
-        //
+        return view('emprendedores.show', compact('emprendedor'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Emprendedor $emprendedor)
     {
-        //
+        $ferias = Feria::all();
+        return view('emprendedores.edit', compact('emprendedor', 'ferias'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Emprendedor $emprendedor)
     {
-        //
+        $data = $request->validate([
+            'nombre' => 'required',
+            'rubro' => 'required',
+            'descripcion' => 'nullable',
+            'contacto' => 'required',
+            'ferias' => 'array',
+        ]);
+
+        $emprendedor->update($data);
+        $emprendedor->ferias()->sync($data['ferias']);
+
+        return redirect()->route('emprendedores.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Emprendedor $emprendedor)
     {
-        //
+        $emprendedor->delete();
+        return redirect()->route('emprendedores.index');
     }
 }
