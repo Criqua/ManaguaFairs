@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('emprendedores', function (Blueprint $table) {
+        Schema::create('entrepreneurs', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('rubro');
-            $table->text('descripcion')->nullable();
-            $table->string('contacto')->nullable();
-            $table->foreignId('feria_id')->constrained('ferias')->onDelete('cascade');
+            $table->string('name');
+            $table->string('category');
+            $table->text('description')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('emprendedores');
+        Schema::dropIfExists('entrepreneurs');
     }
 };

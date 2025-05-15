@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ferias', function (Blueprint $table) {
+        Schema::create('fairs', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->text('descripcion')->nullable();
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
-            $table->time('hora_inicio');
-            $table->time('hora_fin');
-            $table->string('lugar');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->date('event_date');
+            $table->string('location');
             $table->timestamps();
         });
     }    
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ferias');
+        Schema::dropIfExists('fairs');
     }
 };

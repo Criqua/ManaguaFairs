@@ -2,15 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FeriaController;
-use App\Http\Controllers\EmprendedorController;
+use App\Http\Controllers\FairController;
+use App\Http\Controllers\EntrepreneurController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('ferias', FeriaController::class);
-Route::resource('emprendedores', EmprendedorController::class);
+Route::resource('fairs', FairController::class);
+Route::resource('entrepreneurs', EntrepreneurController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
