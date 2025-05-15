@@ -6,7 +6,9 @@
         {{ __('Registrar nueva feria') }}
     </h1>
 
-    <form action="#" method="POST" class="bg-gray-900 shadow-lg rounded-lg p-6 space-y-6">
+    <form action="{{ route('fairs.store') }}" method="POST" autocomplete="off" class="bg-gray-900 shadow-lg rounded-lg p-6 space-y-6">
+        @csrf
+
         @include('fairs._form')
 
         <div class="flex items-center justify-end gap-2">
