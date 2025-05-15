@@ -1,61 +1,32 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ManaguaFairs
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This Laravel-based web application was developed as part of a collaborative academic practice for the *Web Design & E-Commerce course*,  focused on applying the MVC architecture and relational database principles. The goal was to build a dynamic platform to manage and view *community entrepreneurship fairs* held in the neighborhoods of *Managua, Nicaragua*.
 
-## About Laravel
+The application allows users to:
+- Register new fairs with event details
+- Add entrepreneurs and their business categories
+- Link entrepreneurs to the fairs they participate in —and viceversa, via a many-to-many relationship
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Team & Responsibilities / Roles
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Development was organized into feature branches per team member:
 
-## Learning Laravel
+- **[Cristian Gago](https://github.com/Criqua)** – `feature/views`  
+  Designed all responsive Blade views and integrated them with the application logic. Led the integration of feature branches into `develop` for testing. Served as *Frontend Developer*, and additionally took on the roles of *Tester & Documenter* in order to ensure the application’s functionality and documentation quality.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **[Manuel López](https://github.com/ElVatoEste)** – `feature/controllers`  
+  Implemented all controllers, route definitions, and form validation logic. Took the role as a *Backend Developer* by defining the application's logic flow.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **[María Aguilar](https://github.com/mabelenaa)** – `feature/models`  
+  Defined Eloquent models, their relationships, and built database migrations. By designing the data structure, fulfilled the role of *Requirements Analyst* to ensure that the relationed model was indeed scalable and consistent.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Git Workflow
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+As previously stated:
+- Each member developed on a dedicated **feature branch** (`feature/models`, `feature/controllers`, `feature/views`)
+- All feature branches were merged into develop for integration and testing
+- Once stable, the `develop` branch was merged into `main` as the stable release branch
