@@ -38,6 +38,13 @@ class FairController extends Controller
             'location.max'             => 'El lugar no debe exceder los 255 caracteres.',
         ]);
 
+        $fair = Fair::create([
+            'name'        => $data['name'],
+            'event_date'  => $data['event_date'],
+            'location'    => $data['location'],
+            'description' => $data['description'] ?? null,
+        ]);
+
         if (!empty($data['entrepreneurs'])) {
             $fair->entrepreneurs()->sync($data['entrepreneurs']);
         }
