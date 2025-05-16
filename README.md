@@ -30,3 +30,21 @@ As previously stated:
 - Each member developed on a dedicated **feature branch** (`feature/models`, `feature/controllers`, `feature/views`)
 - All feature branches were merged into develop for integration and testing
 - Once stable, the `develop` branch was merged into `main` as the stable release branch
+
+---
+
+## Quick Setup
+
+Once you’ve cloned the repository, open a terminal in the project directory and run the following commands:
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+npm install
+npm run build
+php artisan migrate
+php artisan serve
+
+```
+Now you're ready to go!
