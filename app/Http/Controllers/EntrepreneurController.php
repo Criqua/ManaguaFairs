@@ -35,7 +35,6 @@ class EntrepreneurController extends Controller
             'name'        => 'required|string|max:255',
             'phone'       => 'required|string|max:50',
             'category'    => 'required|string|max:255',
-            'description' => 'nullable|string',
             'fairs'       => 'sometimes|array',
             'fairs.*'     => 'exists:fairs,id',
         ]);
@@ -44,7 +43,6 @@ class EntrepreneurController extends Controller
             'name'        => $data['name'],
             'phone'       => $data['phone'],
             'category'    => $data['category'],
-            'description' => $data['description'] ?? null,
         ]);
 
         if (! empty($data['fairs'])) {
@@ -71,7 +69,6 @@ class EntrepreneurController extends Controller
             'name'        => 'required|string|max:150',
             'phone'       => 'required|string|max:20',
             'category'    => 'required|string|max:50',
-            'description' => 'nullable|string',
             'fairs'       => 'sometimes|array',
             'fairs.*'     => 'exists:fairs,id',
         ], [
@@ -87,7 +84,6 @@ class EntrepreneurController extends Controller
             'name'        => $data['name'],
             'phone'       => $data['phone'],
             'category'    => $data['category'],
-            'description' => $data['description'] ?? null,
         ]);
 
         if (! empty($data['fairs'])) {

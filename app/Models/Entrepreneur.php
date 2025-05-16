@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Entrepreneur extends Model
 {
     protected $fillable = [
-        'name', 'phone', 'category', 'description'
+        'name', 'phone', 'category'
     ];
 
     public function fairs()

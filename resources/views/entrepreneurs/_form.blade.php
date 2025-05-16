@@ -38,18 +38,6 @@
     </div>
 
     <div>
-        <label class="block text-gray-300 mb-1">{{ __('Descripción') }}</label>
-        @if ($readonly)
-            <p class="text-gray-100 bg-gray-800 px-3 py-2 rounded">{{ $entrepreneur->description ?? '-' }}</p>
-        @else
-            <textarea name="description" rows="4" class="w-full bg-gray-800 text-gray-200 border border-gray-700 rounded px-3 py-2">{{ old('description', $entrepreneur->description ?? '') }}</textarea>
-            @error('description')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        @endif
-    </div>
-
-    <div>
         <label class="block text-gray-300 mb-1">{{ __('Ferias asociadas') }}</label>
         @if ($readonly)
             @if($entrepreneur->fairs->isNotEmpty())

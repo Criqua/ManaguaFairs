@@ -52,12 +52,12 @@
     <div>
         <label class="block text-gray-300 mb-1">{{ __('Descripcion') }}</label>
         @if ($readonly)
-            <p class="text-gray-100 bg-gray-800 px-3 py-2 rounded">
+            <p class="text-gray-100 bg-gray-800 px-3 py-2 rounded whitespace-normal break-words">
                 {{ $fair->description ?? '-' }}
             </p>
         @else
             <textarea name="description" rows="4"
-                      class="w-full !bg-gray-800 !text-gray-200 border border-gray-700 rounded px-3 py-2">{{ old('description', $fair->description ?? '') }}</textarea>
+                      class="w-full !bg-gray-800 !text-gray-200 border border-gray-700 rounded px-3 py-2 whitespace-normal break-words">{{ old('description', $fair->description ?? '') }}</textarea>
             @error('description')
                 <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
             @enderror
